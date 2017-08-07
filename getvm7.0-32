@@ -1,0 +1,1 @@
+wget -O- get.pharo.org/vm70 | bash

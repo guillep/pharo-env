@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Bash3 Boilerplate. Copyright (c) 2014, kvz.io
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+
+rm ~/bin/getpharo 2> /dev/null || true
+
+if [[ ! -f ~/bin/getpharo$1  ]]; then
+	echo "Pharo $1 is not configured in the system. Please upload the getpharo scripts in ${__dir}"
+	exit 1
+fi
+
+if [[ ! -f ~/bin/getvm$1  ]]; then
+	echo "Pharo VM $1 is not configured in the system. Please upload the getpharo scripts in ${__dir}"
+	exit 1
+fi
+
+ln -s ~/bin/getpharo$1 ~/bin/getpharo
+ln -s ~/bin/getvm$1 ~/bin/getvm

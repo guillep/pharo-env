@@ -1,0 +1,1 @@
+wget -O- get.pharo.org/64/60+vm | bash
